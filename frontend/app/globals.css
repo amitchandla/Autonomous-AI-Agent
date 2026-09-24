@@ -1,0 +1,62 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-base text-text font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-signal-teal/25 text-text;
+  }
+
+  /* Visible keyboard focus everywhere — never remove outlines outright */
+  :focus-visible {
+    outline: 2px solid #3adbc4;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-control bg-signal-teal
+      px-4 py-2 text-sm font-medium text-base transition-colors hover:bg-signal-teal/90
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-control border border-border
+      bg-surface px-4 py-2 text-sm font-medium text-text transition-colors hover:border-text-faint
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm text-text-muted;
+  }
+
+  .field-input {
+    @apply w-full rounded-control border border-border bg-base px-3 py-2 text-sm text-text
+      placeholder:text-text-faint focus-visible:border-signal-teal;
+  }
+
+  .panel {
+    @apply rounded-panel border border-border bg-surface;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
